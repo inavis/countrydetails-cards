@@ -1,0 +1,17 @@
+.card{
+    background-color: whitesmoke;
+    display: inline-block;
+    margin: 10px;
+}
+.card img{
+    height: 150px;
+    width: 250px;
+}
+.name{
+    font-weight: bold;
+    padding: 5px;
+}
+.text{
+    font-size: small;
+    padding: 5px;
+}
