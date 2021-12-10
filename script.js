@@ -45,35 +45,22 @@ let countriesInfo = [
   // only JS or CSS
   // append vs appendChild
 
-  let content = document.createElement("div");
-  document.body.appendChild(content);
+function search(value){
+  //alert(value)
+   let find =  countriesInfo.filter((country)=> (country.name==value))
 
-  countriesInfo.map((country)=>{
-      let card = document.createElement("div");
-      card.classList="card"
-      content.appendChild(card)
+}
 
-      let img = document.createElement("img");
-      img.setAttribute("src",country.flag);
-      card.appendChild(img)
-
-      let name = document.createElement("div");
-      name.classList="name";
-      name.innerHTML=country.name;
-      card.appendChild(name)
-
-      let population = document.createElement("div");
-      population.classList="text";
-      population.innerHTML=`Population : ${country.population}`;
-      card.appendChild(population);
-
-      let region = document.createElement("div");
-      region.classList="text";
-      region.innerHTML=`Region : ${country.region}`;
-      card.appendChild(region);
-
-      let capital = document.createElement("div");
-      capital.classList="text";
-      capital.innerHTML=`Capital : ${country.capital}`;
-      card.appendChild(capital);
+  countriesInfo.map(({flag,name,population,region,capital})=>{
+   
+   document.querySelector(".content").innerHTML+=`
+      <div class="card">
+        <img src="${flag}"/>
+        <div class="name">${name}</div>
+        <div class="text">Population: ${population}</div>
+        <div class="text">Region: ${region}</div>
+        <div class="text">Capital: ${capital}</div>
+      </div>
+    `;
+ 
   })

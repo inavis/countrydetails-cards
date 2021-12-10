@@ -1,11 +1,41 @@
-.card{
+body{
     background-color: whitesmoke;
+}
+.head{
+    background-color: white;
+    height: 50px;
+    padding: 10px;
+}
+.right{
+    float: right;
+    font-size: small;
+}
+
+.searchbar{
+    background-color: white;
+    box-shadow: 2px 4px rgb(238, 233, 233);
+    margin: 20px;
+    outline: none;
+    border:none;
+    width: 25%;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.card{
+    background-color: white;
     display: inline-block;
-    margin: 10px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 4px rgb(238, 233, 233);
 }
 .card img{
     height: 150px;
-    width: 250px;
+    width: 260px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .name{
     font-weight: bold;
@@ -15,3 +45,6 @@
     font-size: small;
     padding: 5px;
 }
+
+/***********/
+
