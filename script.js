@@ -45,20 +45,20 @@ let countriesInfo = [
   // only JS or CSS
   // append vs appendChild
 
-function search(value){
+// function search(value){
   
-  if(value!=""){
-    let find =  countriesInfo.filter((country)=> (country.name.toLowerCase()==value.toLowerCase()))
-    document.querySelector(".content").innerHTML="";
-     card(find[0]);
-  }
+//   if(value!=""){
+//     let find =  countriesInfo.filter((country)=> (country.name.toLowerCase()==value.toLowerCase()))
+//     document.querySelector(".content").innerHTML="";
+//      card(find[0]);
+//   }
 
-  }
+//   }
 
 
   
 
-  function card({flag,name,population,region,capital}){
+  function card(flag,name,population,region,capital){
     document.querySelector(".content").innerHTML+=`
     <div class="card">
       <img src="${flag}" alt="${name}"/>
@@ -73,10 +73,29 @@ function search(value){
   function display(){
     document.querySelector(".content").innerHTML="";
 
-    countriesInfo.map(({flag,name,population,region,capital})=>{
+//USING ARRAY OF OBJECTS
+    // countriesInfo.map(({flag,name,population,region,capital})=>{
    
-      card({flag,name,population,region,capital})
+    //   card({flag,name,population,region,capital})
     
-     })
+    //  })
+
+    //FETCHING DATA FROM API
+    fetch("https://restcountries.com/v3.1/all")
+    .then((res)=>res.json())
+    .then((country)=>{
+      // console.log(country[0].flags.png,country[0].population,country[0].name.official,country[0].region)
+     // console.log(country[0].capital[0])
+    for(x of country){
+      if(x.capital===undefined){
+        card(x.flags.png,x.name.official,x.population,x.region, "-")
+      }else{
+        card(x.flags.png,x.name.official,x.population,x.region, x.capital[0])
+      }
+      
+      //console.log(x.flags.png,x.name.official,x.population,x.region, x.capital)
+    }
+    })
+    .catch((err)=>console.log(err))
   }
   display();
