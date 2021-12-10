@@ -22,18 +22,18 @@ body{
     padding: 5px;
     border-radius: 5px;
 }
-/* .content{
+.content{
     display: flex;
     flex-wrap: wrap;
     gap:20px;
     justify-content:space-evenly;
-} */
+}
 
-.content{
+/* .content{
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr)); /*RAM -REPEAT ,AUTOFIT, MINMAX*/
-}
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr)); 
+} */
 /* @media(min-width:500px){
     .content{
         grid-template-columns: repeat(2,1fr)

@@ -58,11 +58,11 @@ let countriesInfo = [
 
   
 
-  function card(flag,name,population,region,capital){
+  function card({flags,name,population,region,capital}){
     document.querySelector(".content").innerHTML+=`
     <div class="card">
-      <img src="${flag}" alt="${name}"/>
-      <div class="name">${name}</div>
+      <img src="${flags.png}" alt="${name.official}"/>
+      <div class="name">${name.official}</div>
       <div class="text">Population: ${population}</div>
       <div class="text">Region: ${region}</div>
       <div class="text">Capital: ${capital}</div>
@@ -84,16 +84,8 @@ let countriesInfo = [
     fetch("https://restcountries.com/v3.1/all")
     .then((res)=>res.json())
     .then((country)=>{
-      // console.log(country[0].flags.png,country[0].population,country[0].name.official,country[0].region)
-     // console.log(country[0].capital[0])
     for(x of country){
-      if(x.capital===undefined){
-        card(x.flags.png,x.name.official,x.population,x.region, "-")
-      }else{
-        card(x.flags.png,x.name.official,x.population,x.region, x.capital[0])
-      }
-      
-      //console.log(x.flags.png,x.name.official,x.population,x.region, x.capital)
+      card(x);
     }
     })
     .catch((err)=>console.log(err))
