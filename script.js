@@ -61,8 +61,8 @@ let countriesInfo = [
   function card({flags,name,population,region,capital}){
     document.querySelector(".content").innerHTML+=`
     <div class="card">
-      <img src="${flags.png}" alt="${name.official}"/>
-      <div class="name">${name.official}</div>
+      <img src="${flags}" alt="${name}"/>
+      <div class="name">${name}</div>
       <div class="text">Population: ${population}</div>
       <div class="text">Region: ${region}</div>
       <div class="text">Capital: ${capital}</div>
@@ -85,7 +85,11 @@ let countriesInfo = [
     .then((res)=>res.json())
     .then((country)=>{
     for(x of country){
-      card(x);
+        // let xadapter = {flags:x.flags.svg,name:x.name.official,population:x.population,
+        //   region:x.region,capital:x.capital}
+        // card(xadapter);
+
+      card({...x,flags:x.flags.svg,name:x.name.official});
     }
     })
     .catch((err)=>console.log(err))
