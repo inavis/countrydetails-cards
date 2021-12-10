@@ -46,21 +46,37 @@ let countriesInfo = [
   // append vs appendChild
 
 function search(value){
-  //alert(value)
-   let find =  countriesInfo.filter((country)=> (country.name==value))
+  
+  if(value!=""){
+    let find =  countriesInfo.filter((country)=> (country.name.toLowerCase()==value.toLowerCase()))
+    document.querySelector(".content").innerHTML="";
+     card(find[0]);
+  }
 
-}
+  }
 
-  countriesInfo.map(({flag,name,population,region,capital})=>{
+
+  
+
+  function card({flag,name,population,region,capital}){
+    document.querySelector(".content").innerHTML+=`
+    <div class="card">
+      <img src="${flag}" alt="${name}"/>
+      <div class="name">${name}</div>
+      <div class="text">Population: ${population}</div>
+      <div class="text">Region: ${region}</div>
+      <div class="text">Capital: ${capital}</div>
+    </div>
+  `;
+  }
+
+  function display(){
+    document.querySelector(".content").innerHTML="";
+
+    countriesInfo.map(({flag,name,population,region,capital})=>{
    
-   document.querySelector(".content").innerHTML+=`
-      <div class="card">
-        <img src="${flag}"/>
-        <div class="name">${name}</div>
-        <div class="text">Population: ${population}</div>
-        <div class="text">Region: ${region}</div>
-        <div class="text">Capital: ${capital}</div>
-      </div>
-    `;
- 
-  })
+      card({flag,name,population,region,capital})
+    
+     })
+  }
+  display();

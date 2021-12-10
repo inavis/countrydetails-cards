@@ -23,17 +23,23 @@ body{
     border-radius: 5px;
 }
 
-
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content:space-evenly;
+}
 .card{
     background-color: white;
-    display: inline-block;
-    margin: 20px;
+    width: 250px;
+    /* display: inline-block; */
+    /* margin: 20px; */
     border-radius: 5px;
-    box-shadow: 2px 4px rgb(238, 233, 233);
+    box-shadow: 4px 6px rgb(238, 233, 233);
 }
 .card img{
     height: 150px;
-    width: 260px;
+    width: 250px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
